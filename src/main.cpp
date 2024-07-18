@@ -56,7 +56,6 @@ void lv_ticker_thread()
         printf("lv_ticker_thread()\n");
 #endif
         lv_task_handler();
-
         lv_tick_inc(LVGL_TICK);
         ThisThread::sleep_for(LVGL_TICK);
     }
@@ -77,8 +76,6 @@ int main()
 
     // Create a thread to handle lvgl tasks
     thread.start(lv_ticker_thread);
-    // thread.start(lv_task_handler_thread);
-    // thread.start(send_thread);
 
     ui_init();
 
@@ -86,8 +83,19 @@ int main()
     while (1)
     {
 #ifdef DEBUG_CAN
-        if (can1.read(msg))
+        if (can1.read(msg)){
         printf("Message received: %d\n", msg.id);
+        for (uint8_t i = 0; i < sizeof(msg.data); i++)
+        {
+            printf(" %02X", msg.data[i]);
+        }
+        {
+            /* code */
+        }
+        
+
+
+        }
 #else
         can1.read(msg);
 
