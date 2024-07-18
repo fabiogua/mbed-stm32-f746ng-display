@@ -1,6 +1,6 @@
-SET(SOURCES components/ui_comp_voltagel.c
+SET(SOURCES components/ui_comp_homebar.c
     components/ui_comp.c
-    screens/ui_Screen1.c
+    screens/ui_screen1.c
     ui.c
     components/ui_comp_hook.c
     ui_helpers.c

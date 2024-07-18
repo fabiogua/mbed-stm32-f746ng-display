@@ -79,22 +79,42 @@ int main()
 
     ui_init();
 
-
     while (1)
     {
 #ifdef DEBUG_CAN
-        if (can1.read(msg)){
-        printf("Message received: %d\n", msg.id);
-        for (uint8_t i = 0; i < sizeof(msg.data); i++)
+        if (can1.read(msg))
         {
-            printf(" %02X", msg.data[i]);
-        }
-        {
-            /* code */
-        }
-        
+#ifdef DEBUG
+            printf("Message received: %d\n", msg.id);
+#endif
 
+            // byte 0: battery voltage & 0xFF
+            // byte 1: battery voltage  >> 8
+            // byte 2: battery current & 0xFF
+            // byte 3: battery current >> 8
+            // byte 4: battery temperature
+            // byte 5: motor temperature
 
+            // battery voltage range is 0-500V in 0.1V-> 2 bytes
+            // battery temperature range is -40-215C in 1C -> 1 byte
+            // battery current range is -50000-100000A in 10A -> 2 bytes
+            // motor temperature range is -40-215C in 1C -> 1 byte
+
+            uint16_t battery_voltage = (uint32_t)msg.data[0] + ((uint32_t)msg.data[1] << 8);
+            uint16_t battery_current = (uint32_t)msg.data[2] + ((uint32_t)msg.data[3] << 8);
+            uint8_t battery_temperature = (uint32_t)msg.data[4];
+            uint8_t motor_temperature = (uint32_t)msg.data[5];
+            uint32_t power = battery_voltage * battery_current /1000;
+
+            lv_label_set_text_fmt(ui_soclabel, "%d %c", battery_voltage / 50, '%');
+            lv_bar_set_value(ui_socbar, (uint8_t)(battery_voltage / 50), LV_ANIM_ON);
+            lv_label_set_text_fmt(ui_batteryvoltagelabel, "%dV", battery_voltage / 10);
+
+            lv_label_set_text_fmt(ui_label4, "%d°C", battery_temperature);
+            lv_bar_set_value(ui_bar3, (uint8_t)battery_temperature*100/255, LV_ANIM_ON);
+
+            lv_label_set_text_fmt(ui_label1, "%d°C", motor_temperature);
+            lv_bar_set_value(ui_bar1, (uint8_t)motor_temperature*100/255, LV_ANIM_ON);
         }
 #else
         can1.read(msg);

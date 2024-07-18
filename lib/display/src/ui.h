@@ -27,10 +27,25 @@ extern "C" {
 #include "components/ui_comp_hook.h"
 #include "ui_events.h"
 
-// SCREEN: ui_Screen1
-void ui_Screen1_screen_init(void);
-extern lv_obj_t * ui_Screen1;
-extern lv_obj_t * ui_Label1;
+// SCREEN: ui_screen1
+void ui_screen1_screen_init(void);
+extern lv_obj_t * ui_screen1;
+extern lv_obj_t * ui_soccontainer;
+extern lv_obj_t * ui_socbar;
+extern lv_obj_t * ui_soclabel;
+extern lv_obj_t * ui_batteryvoltagelabel;
+extern lv_obj_t * ui_homebar4;
+extern lv_obj_t * ui_bar1;
+extern lv_obj_t * ui_label1;
+extern lv_obj_t * ui_homebar2;
+extern lv_obj_t * ui_bar3;
+extern lv_obj_t * ui_label4;
+extern lv_obj_t * ui_container3;
+extern lv_obj_t * ui_button2;
+extern lv_obj_t * ui_label3;
+extern lv_obj_t * ui_container1;
+extern lv_obj_t * ui_button1;
+extern lv_obj_t * ui_label2;
 extern lv_obj_t * ui____initial_actions0;
 
 

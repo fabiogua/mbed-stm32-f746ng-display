@@ -9,10 +9,25 @@
 ///////////////////// VARIABLES ////////////////////
 
 
-// SCREEN: ui_Screen1
-void ui_Screen1_screen_init(void);
-lv_obj_t * ui_Screen1;
-lv_obj_t * ui_Label1;
+// SCREEN: ui_screen1
+void ui_screen1_screen_init(void);
+lv_obj_t * ui_screen1;
+lv_obj_t * ui_soccontainer;
+lv_obj_t * ui_socbar;
+lv_obj_t * ui_soclabel;
+lv_obj_t * ui_batteryvoltagelabel;
+lv_obj_t * ui_homebar4;
+lv_obj_t * ui_bar1;
+lv_obj_t * ui_label1;
+lv_obj_t * ui_homebar2;
+lv_obj_t * ui_bar3;
+lv_obj_t * ui_label4;
+lv_obj_t * ui_container3;
+lv_obj_t * ui_button2;
+lv_obj_t * ui_label3;
+lv_obj_t * ui_container1;
+lv_obj_t * ui_button1;
+lv_obj_t * ui_label2;
 lv_obj_t * ui____initial_actions0;
 
 ///////////////////// TEST LVGL SETTINGS ////////////////////
@@ -37,7 +52,7 @@ void ui_init(void)
     lv_theme_t * theme = lv_theme_default_init(dispp, lv_palette_main(LV_PALETTE_BLUE), lv_palette_main(LV_PALETTE_RED),
                                                false, LV_FONT_DEFAULT);
     lv_disp_set_theme(dispp, theme);
-    ui_Screen1_screen_init();
+    ui_screen1_screen_init();
     ui____initial_actions0 = lv_obj_create(NULL);
-    lv_disp_load_scr(ui_Screen1);
+    lv_disp_load_scr(ui_screen1);
 }

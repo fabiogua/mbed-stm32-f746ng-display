@@ -10,7 +10,7 @@
 extern "C" {
 #endif
 
-void ui_comp_voltageL_create_hook(lv_obj_t * comp);
+void ui_comp_homebar_create_hook(lv_obj_t * comp);
 
 #ifdef __cplusplus
 } /*extern "C"*/

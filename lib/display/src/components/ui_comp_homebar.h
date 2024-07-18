@@ -3,8 +3,8 @@
 // LVGL version: 8.3.6
 // Project name: SquareLine_Project
 
-#ifndef _UI_COMP_VOLTAGEL_H
-#define _UI_COMP_VOLTAGEL_H
+#ifndef _UI_COMP_HOMEBAR_H
+#define _UI_COMP_HOMEBAR_H
 
 #include "../ui.h"
 
@@ -12,10 +12,12 @@
 extern "C" {
 #endif
 
-// COMPONENT voltageL
-#define UI_COMP_VOLTAGEL_VOLTAGEL 0
-#define _UI_COMP_VOLTAGEL_NUM 1
-lv_obj_t * ui_voltageL_create(lv_obj_t * comp_parent);
+// COMPONENT homebar
+#define UI_COMP_HOMEBAR_HOMEBAR 0
+#define UI_COMP_HOMEBAR_BAR2 1
+#define UI_COMP_HOMEBAR_LABEL2 2
+#define _UI_COMP_HOMEBAR_NUM 3
+lv_obj_t * ui_homebar_create(lv_obj_t * comp_parent);
 
 #ifdef __cplusplus
 } /*extern "C"*/
