@@ -4,6 +4,6 @@ SET(SOURCES components/ui_comp_voltagel.c
     ui.c
     components/ui_comp_hook.c
     ui_helpers.c
-    ui_events.cpp)
+    ui_events.c)
 
 add_library(ui ${SOURCES})
