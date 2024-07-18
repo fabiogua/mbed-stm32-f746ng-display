@@ -41,6 +41,7 @@ extern lv_obj_t * ui_homebar2;
 extern lv_obj_t * ui_bar3;
 extern lv_obj_t * ui_label4;
 extern lv_obj_t * ui_container3;
+void ui_event_button2(lv_event_t * e);
 extern lv_obj_t * ui_button2;
 extern lv_obj_t * ui_label3;
 extern lv_obj_t * ui_container1;
