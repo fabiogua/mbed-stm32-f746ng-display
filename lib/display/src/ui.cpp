@@ -51,7 +51,7 @@ void ui_event_button2(lv_event_t * e)
     lv_event_code_t event_code = lv_event_get_code(e);
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_CLICKED) {
-        can2.write(CANMessage(292, "Toggle Power", 13));
+        can2.write(CANMessage(292, "0", 1));
     }
 }
 
